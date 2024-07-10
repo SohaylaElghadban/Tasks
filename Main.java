@@ -1,28 +1,23 @@
-package Vechile;
-
 import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        String boringString = "abbccCDdBCCcc";
+        List<Integer> sIndexes = new ArrayList<>();
+        List<Integer> eIndexes = new ArrayList<>();
 
-        System.out.print("Enter vehicle type (truck/car): ");
-        String vehicleType = scanner.nextLine();
-        System.out.print("Enter weight load: ");
-        int weightLoad = scanner.nextInt();
+        sIndexes.add(1);
+        sIndexes.add(5);
+        sIndexes.add(7);
+        sIndexes.add(11);
 
-        Vechile v;
-        if ("truck".equalsIgnoreCase(vehicleType)) {
-            v= new Truck(weightLoad);
-        } else if ("car".equalsIgnoreCase(vehicleType)) {
-            v = new Car(weightLoad);
-        } else {
-            System.out.println("Invalid vehicle type!");
-            scanner.close();
-            return;
-        }
+        eIndexes.add(3);
+        eIndexes.add(5);
+        eIndexes.add(10);
+        eIndexes.add(12);
 
-        System.out.println("The weight load is: " + v.getVehicleWeightLoad());
-
-        scanner.close();
+        StringFunifier funifier = new StringFunifier(boringString, sIndexes, eIndexes);
+        String funnyString = funifier.getFunnyString();
+        System.out.println(funnyString);
     }
 }
